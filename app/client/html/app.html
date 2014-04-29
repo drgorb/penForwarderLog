@@ -1,0 +1,36 @@
+<head>
+   <title>Penforwarder logger</title>
+</head>
+
+<body>
+
+</body>
+
+<template name="logData">
+   <h1>Boxes used</h1>
+   <table>
+      {{#each boxes}}
+      <tr>
+         <td>
+            {{name}}
+         </td>
+         <td>
+            <table>
+               {{#each events this}}
+               <tr>
+                  <td>
+                     {{#with pen}}
+                     {{penId}} {{name}} {{address}}
+                     {{/with}}
+                  </td>
+                  <td>
+                     {{timeStamp}}
+                  </td>
+               </tr>
+               {{/each}}
+            </table>
+         </td>
+      </tr>
+      {{/each}}
+   </table>
+</template>
