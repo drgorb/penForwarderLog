@@ -19,7 +19,7 @@
       {{#each pens}}
       <tr>
          <td>
-            {{penId}} {{name}}
+            {{name}}
          </td>
          {{#with event}}
          <td>
@@ -30,6 +30,9 @@
          </td>
          <td>
             {{lastEvent.timeStamp}}
+         </td>
+         <td>
+            {{lastEvent.boxId}}
          </td>
          {{/with}}
       </tr>
