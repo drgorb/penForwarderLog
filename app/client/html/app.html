@@ -7,12 +7,19 @@
 </body>
 
 <template name="logData">
-   <h1>Boxes used</h1>
+   <h2>Pens used</h2>
+   {{#if dataReady}}
    <table>
+      <tr style="background: lightgrey">
+         <td>Pen</td>
+         <td>Events</td>
+         <td>Today</td>
+         <td>last</td>
+      </tr>
       {{#each pens}}
       <tr>
          <td>
-            {{name}}
+            {{penId}} {{name}}
          </td>
          {{#with event}}
          <td>
@@ -22,10 +29,11 @@
             {{eventCountToday}}
          </td>
          <td>
-            {{lastEvent}}
+            {{lastEvent.timeStamp}}
          </td>
          {{/with}}
       </tr>
       {{/each}}
    </table>
+   {{/if}}
 </template>

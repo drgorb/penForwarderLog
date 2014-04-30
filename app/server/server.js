@@ -13,14 +13,22 @@ Meteor.startup(function () {
                   timeStamp: moment().format("YYYY.MM.DD hh:mm:ss")
                });
             /*add the documents as they arrive*/
-            if(!Boxes.find({boxId: req.body.boxId}).count()){
+            if (!Boxes.find({boxId: req.body.boxId}).count()) {
                Boxes.insert({boxId: req.body.boxId});
             }
-            if(!Pens.find({penId: req.body.penId}).count()){
+            if (!Pens.find({penId: req.body.penId}).count()) {
                Pens.insert({penId: req.body.penId});
             }
          }
       });
    });
 
-})
+});
+
+Meteor.methods(
+   {
+      "getRootURL": function () {
+         return process.env.ROOT_URL || "/";
+      }
+   }
+)
