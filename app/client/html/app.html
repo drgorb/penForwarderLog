@@ -9,27 +9,22 @@
 <template name="logData">
    <h1>Boxes used</h1>
    <table>
-      {{#each boxes}}
+      {{#each pens}}
       <tr>
          <td>
             {{name}}
          </td>
+         {{#with event}}
          <td>
-            <table>
-               {{#each events this}}
-               <tr>
-                  <td>
-                     {{#with pen}}
-                     {{penId}} {{name}} {{address}}
-                     {{/with}}
-                  </td>
-                  <td>
-                     {{timeStamp}}
-                  </td>
-               </tr>
-               {{/each}}
-            </table>
+            {{eventCount}}
          </td>
+         <td>
+            {{eventCountToday}}
+         </td>
+         <td>
+            {{lastEvent}}
+         </td>
+         {{/with}}
       </tr>
       {{/each}}
    </table>

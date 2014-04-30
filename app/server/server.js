@@ -10,7 +10,7 @@ Meteor.startup(function () {
                   boxId: req.body.boxId,
                   penId: req.body.penId,
                   filename: req.body.filename,
-                  timeStamp: moment().format("DD.MM hh:mm:ss")
+                  timeStamp: moment().format("YYYY.MM.DD hh:mm:ss")
                });
             /*add the documents as they arrive*/
             if(!Boxes.find({boxId: req.body.boxId}).count()){
