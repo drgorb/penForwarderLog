@@ -5,7 +5,12 @@ Template.logData.helpers(
       },
 
       pens: function(){
-         return Pens.find();
+         var pens = [];
+         _(_(_(Events.find({}, {sort: {timeStamp: -1}}).fetch()).pluck("penId")).uniq()).each(function(penId){
+            pens.push(Pens.findOne({penId: penId}));
+         });
+
+         return pens;
       },
 
       event: function(){
